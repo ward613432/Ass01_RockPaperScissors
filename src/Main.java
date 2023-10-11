@@ -15,30 +15,14 @@ public class Main {
             GetPlayerInput("playerA", 0);
             GetPlayerInput("playerB", 1);
 
-            // rock wins?
-            if (playerInputs[0].equals("R") && playerInputs[1].equals("S")) {
-                System.out.println("playerA wins!");
-            } else if (playerInputs[1].equals("R") && playerInputs[0].equals("S")) {
-                System.out.println("playerB wins!");
-            }
-
-            // paper wins?
-            if (playerInputs[0].equals("P") && playerInputs[1].equals("R")) {
-                System.out.println("playerA wins!");
-            } else if (playerInputs[1].equals("P") && playerInputs[0].equals("R")) {
-                System.out.println("playerB wins!");
-            }
-
-            // scissors wins?
-            if (playerInputs[0].equals("S") && playerInputs[1].equals("P")) {
-                System.out.println("playerA wins!");
-            } else if (playerInputs[1].equals("S") && playerInputs[0].equals("P")) {
-                System.out.println("playerB wins!");
-            }
-
-            // draw?
             if (playerInputs[0].equals(playerInputs[1])) {
                 System.out.println("It's a tie!");
+            } else if (playerInputs[0].equals("R") && playerInputs[1].equals("S")
+            || playerInputs[0].equals("P") && playerInputs[1].equals("R")
+            || playerInputs[0].equals("S") && playerInputs[1].equals("P")) {
+                System.out.println("playerA wins!");
+            } else {
+                System.out.println("playerB wins!");
             }
 
             do {
