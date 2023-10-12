@@ -6,10 +6,9 @@ public class Main {
 
     public static void main(String[] args) {
         scanner = new Scanner(System.in);
-        boolean gameOver = false;
         String yn = "";
 
-        while (!gameOver) {
+        while (true) {
             playerInputs[0] = GetPlayerInput("playerA, what is your move? [R/P/S]", "RPS");
             playerInputs[1] = GetPlayerInput("playerB, what is your move? [R/P/S]", "RPS");
 
@@ -25,7 +24,7 @@ public class Main {
 
             yn = GetPlayerInput("Would you like to play again? [Y/N]", "YN");
             if (yn.equals("N")) {
-                gameOver = true;
+                break;
             }
         }
     }
