@@ -9,7 +9,7 @@ public class Main {
         boolean gameOver = false;
         String yn = "";
 
-        do {
+        while (!gameOver) {
             playerInputs[0] = GetPlayerInput("playerA, what is your move? [R/P/S]", "RPS");
             playerInputs[1] = GetPlayerInput("playerB, what is your move? [R/P/S]", "RPS");
 
@@ -27,7 +27,7 @@ public class Main {
             if (yn.equals("N")) {
                 gameOver = true;
             }
-        } while (!gameOver);
+        }
     }
 
     private static String GetPlayerInput(String question, String answers) {
