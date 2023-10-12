@@ -6,9 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         scanner = new Scanner(System.in);
-
         boolean gameOver = false;
-        boolean verify = false;
         String yn = "";
 
         do {
@@ -30,7 +28,6 @@ public class Main {
                 gameOver = true;
             }
         } while (!gameOver);
-
     }
 
     private static String GetPlayerInput(String question, String answers) {
