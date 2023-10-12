@@ -12,8 +12,8 @@ public class Main {
         String yn = "";
 
         do {
-            GetPlayerInput("playerA", 0);
-            GetPlayerInput("playerB", 1);
+            playerInputs[0] = GetPlayerInput("playerA, what is your move? [R/P/S]", "RPS");
+            playerInputs[1] = GetPlayerInput("playerB, what is your move? [R/P/S]", "RPS");
 
             if (playerInputs[0].equals(playerInputs[1])) {
                 System.out.println("It's a tie!");
@@ -25,46 +25,27 @@ public class Main {
                 System.out.println("playerB wins!");
             }
 
-            do {
-                System.out.println("Would you like to play again? [Y\\N]");
-
-                if (scanner.hasNextLine()) {
-                    yn = scanner.nextLine().toUpperCase();
-
-                    if (yn.equals("N")) {
-                        gameOver = true;
-                        verify = true;
-                    } else if (yn.equals("Y")) {
-                        verify = true;
-                    } else {
-                        System.out.printf("Invalid input: \"%s\", please try again.\n", scanner.nextLine());
-                    }
-                } else {
-                    System.out.printf("Invalid input: \"%s\", please try again.\n", scanner.nextLine());
-                }
-            } while (!verify);
+            yn = GetPlayerInput("Would you like to play again? [Y/N]", "YN");
+            if (yn.equals("N")) {
+                gameOver = true;
+            }
         } while (!gameOver);
 
     }
 
-    private static void GetPlayerInput(String question, int outputIndex) {
-        boolean verify = false;
-
+    private static String GetPlayerInput(String question, String answers) {
         do {
-            System.out.printf("%s, what is your move? [R/P/S]\n", question);
+            System.out.println(question);
 
             if (scanner.hasNextLine()) {
                 String move = scanner.nextLine().toUpperCase();
 
-                if (move.equals("R") || move.equals("P") || move.equals("S")) {
-                    playerInputs[outputIndex] = move;
-                    verify = true;
+                if (answers.toUpperCase().contains(move)) {
+                    return move;
                 } else {
-                    System.out.printf("Invalid input: \"%s\", please try again.\n", scanner.nextLine());
+                    System.out.printf("Invalid input: \"%s\", please try again.\n", move);
                 }
-            } else {
-                System.out.printf("Invalid input: \"%s\", please try again.\n", scanner.nextLine());
             }
-        } while (!verify);
+        } while (true);
     }
 }
