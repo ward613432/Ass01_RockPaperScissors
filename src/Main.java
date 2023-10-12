@@ -33,7 +33,6 @@ public class Main {
     private static String GetPlayerInput(String question, String answers) {
         do {
             System.out.println(question);
-
             if (scanner.hasNextLine()) {
                 String move = scanner.nextLine().toUpperCase();
 
