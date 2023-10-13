@@ -29,7 +29,6 @@ public class Main {
             System.out.println(question);
             if (scanner.hasNextLine()) {
                 String move = scanner.nextLine().toUpperCase();
-
                 if (answers.toUpperCase().contains(move)) {
                     return move;
                 } else {
