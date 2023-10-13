@@ -1,29 +1,24 @@
 import java.util.Scanner;
 
 public class Main {
-    static String[] playerInputs = new String[2];
-    static Scanner scanner;
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        scanner = new Scanner(System.in);
-        String yn = "";
-
         while (true) {
-            playerInputs[0] = GetPlayerInput("playerA, what is your move? [R/P/S]", "RPS");
-            playerInputs[1] = GetPlayerInput("playerB, what is your move? [R/P/S]", "RPS");
+            String playerA = GetPlayerInput("playerA, what is your move? [R/P/S]", "RPS");
+            String playerB = GetPlayerInput("playerB, what is your move? [R/P/S]", "RPS");
 
-            if (playerInputs[0].equals(playerInputs[1])) {
+            if (playerA.equals(playerB)) {
                 System.out.println("It's a tie!");
-            } else if (playerInputs[0].equals("R") && playerInputs[1].equals("S")
-            || playerInputs[0].equals("P") && playerInputs[1].equals("R")
-            || playerInputs[0].equals("S") && playerInputs[1].equals("P")) {
+            } else if (playerA.equals("R") && playerB.equals("S")
+            || playerA.equals("P") && playerB.equals("R")
+            || playerA.equals("S") && playerB.equals("P")) {
                 System.out.println("playerA wins!");
             } else {
                 System.out.println("playerB wins!");
             }
 
-            yn = GetPlayerInput("Would you like to play again? [Y/N]", "YN");
-            if (yn.equals("N")) {
+            if (GetPlayerInput("Would you like to play again? [Y/N]", "YN").equals("N")) {
                 break;
             }
         }
